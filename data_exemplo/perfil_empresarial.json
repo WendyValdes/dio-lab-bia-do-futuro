@@ -1,1 +1,42 @@
-
+[
+  {
+    "id": 1,
+    "nome_negocio": "Restaurante Sabor Caseiro",
+    "segmento": "Alimentação",
+    "faturamento_mensal": 30000,
+    "custos_fixos": 18000,
+    "custos_variaveis": 7000,
+    "numero_funcionarios": 3,
+    "ticket_medio": 45
+  },
+  {
+    "id": 2,
+    "nome_negocio": "Loja Estilo Urbano",
+    "segmento": "Varejo de Roupas",
+    "faturamento_mensal": 25000,
+    "custos_fixos": 12000,
+    "custos_variaveis": 8000,
+    "numero_funcionarios": 2,
+    "ticket_medio": 120
+  },
+  {
+    "id": 3,
+    "nome_negocio": "Studio Beleza & Cia",
+    "segmento": "Serviços de Beleza",
+    "faturamento_mensal": 20000,
+    "custos_fixos": 10000,
+    "custos_variaveis": 4000,
+    "numero_funcionarios": 2,
+    "ticket_medio": 80
+  },
+  {
+    "id": 4,
+    "nome_negocio": "Manutenção Rápida",
+    "segmento": "Serviços Técnicos",
+    "faturamento_mensal": 15000,
+    "custos_fixos": 7000,
+    "custos_variaveis": 3000,
+    "numero_funcionarios": 1,
+    "ticket_medio": 150
+  }
+]
