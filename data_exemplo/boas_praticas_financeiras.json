@@ -1,1 +1,22 @@
-
+{
+  "aumentar_lucro": [
+    "Reduzir custos desnecessários",
+    "Aumentar ticket médio",
+    "Fidelizar clientes"
+  ],
+  "reducao_custos": [
+    "Negociar com fornecedores",
+    "Eliminar desperdícios",
+    "Revisar contratos"
+  ],
+  "contratacao": [
+    "Avaliar impacto no lucro",
+    "Garantir demanda suficiente",
+    "Considerar alternativas como freelancer"
+  ],
+  "crise": [
+    "Criar reserva de emergência",
+    "Reduzir custos fixos",
+    "Diversificar fontes de receita"
+  ]
+}
