@@ -1,1 +1,11 @@
-
+{
+  "margem_lucro_ideal": 0.15,
+  "custo_funcionarios_max": 0.30,
+  "reserva_emergencia_meses": 3,
+  "ticket_medio_ideal": {
+    "alimentacao": 50,
+    "varejo": 100,
+    "beleza": 90,
+    "servicos": 120
+  }
+}
