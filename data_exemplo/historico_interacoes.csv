@@ -1,1 +1,5 @@
-
+data,id_cliente,pergunta,resposta_resumida
+2026-03-10,1,Como aumentar lucro?,Sugerido reduzir custos e aumentar ticket médio
+2026-03-11,2,Posso contratar?,Avaliação baseada no faturamento
+2026-03-12,3,Minhas vendas caíram,Sugerido promoções e fidelização
+2026-03-13,4,Devo investir?,Solicitado perfil de risco
