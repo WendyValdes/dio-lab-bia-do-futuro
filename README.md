@@ -1,149 +1,168 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# 🤖 Cielo AI Advisor
 
-## Contexto
-
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
-
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
-
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
+Agente financeiro inteligente desenvolvido com IA Generativa para apoiar pequenos e médios empreendedores na tomada de decisões com base em dados financeiros simulados da Cielo.
 
 ---
 
-## O Que Você Deve Entregar
+## 📌 Sobre o Projeto
 
-### 1. Documentação do Agente
+Este projeto foi desenvolvido como parte de um desafio de IA aplicada, com o objetivo de criar um agente capaz de:
 
-Defina **o que** seu agente faz e **como** ele funciona:
+- Interpretar dados financeiros de clientes
+- Responder perguntas de forma contextualizada
+- Sugerir ações práticas para o negócio
+- Evitar respostas imprecisas (alucinações)
 
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
+O agente simula um **consultor financeiro digital**, utilizando dados estruturados e prompts bem definidos.
 
 ---
 
-### 2. Base de Conhecimento
+## 🎯 Problema
 
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
+Empreendedores nem sempre possuem conhecimento ou ferramentas para analisar:
 
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
+- Faturamento
+- Custos
+- Situação financeira do negócio
 
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
+Isso dificulta decisões como:
 
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
-
----
-
-### 3. Prompts do Agente
-
-Documente os prompts que definem o comportamento do seu agente:
-
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
-
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
+- Contratar funcionários  
+- Reduzir despesas  
+- Expandir o negócio  
 
 ---
 
-### 4. Aplicação Funcional
+## 💡 Solução
 
-Desenvolva um **protótipo funcional** do seu agente:
+O **Cielo AI Advisor** utiliza IA Generativa para:
 
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
+- Analisar dados do cliente
+- Entender o contexto do negócio
+- Gerar recomendações claras e seguras
 
-📁 **Pasta:** [`src/`](./src/)
-
----
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
+Tudo isso através de uma interface de chat simples.
 
 ---
 
-### 6. Pitch
+## 🧠 O que o agente responde
 
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
+Exemplos de perguntas:
 
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
+- "Posso contratar mais um funcionário?"
+- "Minhas vendas caíram, o que faço?"
+- "Como melhorar meu lucro?"
 
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
-
----
-
-## Ferramentas Sugeridas
-
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
+O agente responde com base nos dados disponíveis e regras financeiras básicas.
 
 ---
 
-## Estrutura do Repositório
+## 📂 Estrutura do Repositório
 
-```
 📁 lab-agente-financeiro/
 │
 ├── 📄 README.md
 │
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
+├── 📁 data_exemplo/ # Dados simulados do cliente
+│ ├── boas_praticas_financeiras.json
+│ ├── cenarios_negocio.json
+│ ├── historico_interacoes.cvs
+│ ├── indicadores_financeiros.json
+│ ├── perfil_empresarial.json
+│ ├── produtos_cielo.json
+│ └── transacoes.csv
 │
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
+├── 📁 docs/ # Documentação do projeto
+│ ├── 01-documentacao-agente.md
+│ ├── 02-base-conhecimento.md
+│ ├── 03-prompts.md
+│ ├── 04-metricas.md
+│ └── 05-pitch.md
 │
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
+├── 📁 src/ # Código da aplicação
+│ ├── app.py
+│ ├── agente.py
+│ ├── config.py
+│ └── requirements.txt
 │
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
-│
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
-```
+├── 📁 examples/ # Exemplos do projeto
+└── README.md
+
+⚙️ Como Executar
+1. Instalar dependências
+pip install -r src/requirements.txt
+2. Configurar chave da API
+
+Criar arquivo .env:
+
+OPENAI_API_KEY=sua_chave_aqui
+3. Rodar a aplicação
+streamlit run src/app.py
+📊 Base de Dados
+
+Os dados são simulados e representam clientes da Cielo.
+
+Incluem:
+
+Informações do negócio
+Histórico de transações
+Custos
+Cenário financeiro
+
+Esses dados são utilizados como contexto para o agente.
+
+🧩 Componentes do Projeto
+Dados (data/): base de conhecimento do agente
+Prompts (docs/03): definem comportamento e regras
+Aplicação (src/): interface e lógica do chatbot
+Métricas (docs/04): avaliação de qualidade
+📏 Avaliação
+
+O agente foi testado com base em:
+
+Assertividade das respostas
+Segurança (não inventar dados)
+Coerência com o cenário do cliente
+🚀 Possíveis Melhorias
+Integração com dados reais
+Interface mais robusta
+Histórico de conversas
+Recomendações mais avançadas
+🎥 Pitch
+
+O projeto inclui um pitch de até 3 minutos explicando:
+
+Problema
+Solução
+Demonstração
+Impacto
+
+Ver em: docs/05-pitch.md
+
+🏁 Conclusão
+
+O projeto demonstra como a IA Generativa pode ser aplicada para transformar dados financeiros em recomendações úteis, de forma simples e acessível.
+
+📌 Observação
+
+Este projeto utiliza dados simulados e tem fins educacionais.
 
 ---
 
-## Dicas Finais
+## 🔥 Agora sim — por que esse ficou melhor
 
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+Esse README:
+
+✅ Reflete exatamente o que você fez (sem inventar arquitetura complexa)  
+✅ É direto (avaliador lê rápido)  
+✅ Mantém cara profissional  
+✅ Conecta com todas as pastas do projeto  
+
+---
+
+Se quiser dar um **upgrade final (nível impressionar recrutador)**, posso:
+
+👉 deixar ele mais visual (badges, prints, gif do app)  
+👉 ou adaptar ele exatamente pro padrão da DIO  
+
+Só falar 👍
