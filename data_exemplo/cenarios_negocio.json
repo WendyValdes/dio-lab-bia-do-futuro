@@ -1,1 +1,26 @@
-
+{
+  "queda_vendas": {
+    "descricao": "Redução de faturamento",
+    "acoes": [
+      "Reduzir custos não essenciais",
+      "Criar promoções",
+      "Investir em marketing digital"
+    ]
+  },
+  "expansao": {
+    "descricao": "Crescimento do negócio",
+    "acoes": [
+      "Avaliar contratação",
+      "Aumentar estoque",
+      "Expandir canais de venda"
+    ]
+  },
+  "estabilidade": {
+    "descricao": "Negócio estável",
+    "acoes": [
+      "Otimizar processos",
+      "Aumentar margem de lucro",
+      "Planejar crescimento"
+    ]
+  }
+}
