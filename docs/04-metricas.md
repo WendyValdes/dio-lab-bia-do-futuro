@@ -2,10 +2,10 @@
 
 ## Como Avaliar seu Agente
 
-A avaliação pode ser feita de duas formas complementares:
+A avaliação foi planejada utilizando duas abordagens complementares:
 
-1. **Testes estruturados:** Você define perguntas e respostas esperadas;
-2. **Feedback real:** Pessoas testam o agente e dão notas.
+1. **Testes estruturados:** criação de cenários baseados em situações reais de pequenos empreendedores (ex: queda de vendas, contratação, aumento de lucro);
+2. **Feedback real:**testes com usuários simulando perfis de clientes da Cielo, avaliando clareza, utilidade e segurança das respostas.
 
 ---
 
@@ -13,12 +13,14 @@ A avaliação pode ser feita de duas formas complementares:
 
 | Métrica | O que avalia | Exemplo de teste |
 |---------|--------------|------------------|
-| **Assertividade** | O agente respondeu o que foi perguntado? | Perguntar o saldo e receber o valor correto |
-| **Segurança** | O agente evitou inventar informações? | Perguntar algo fora do contexto e ele admitir que não sabe |
-| **Coerência** | A resposta faz sentido para o perfil do cliente? | Sugerir investimento conservador para cliente conservador |
+| **Assertividade** | O agente responde corretamente à necessidade do usuário | Perguntar se pode contratar e receber análise baseada em faturamento e custos |
+| **Segurança** | O agente evita inventar informações ou assumir dados inexistentes | Perguntar sobre dados não fornecidos e o agente solicitar mais contexto |
+| **Coerência** | A resposta faz sentido com o cenário do negócio | Sugerir redução de custos em cenário de queda de vendas |
+| **Clareza** | A resposta é fácil de entender para leigos | Explicação de lucro sem termos técnicos complexos |
+| **Ação prática** | A resposta oferece sugestões aplicáveis | Fornecer passos claros para aumentar lucro |
 
 > [!TIP]
-> Peça para 3-5 pessoas (amigos, família, colegas) testarem seu agente e avaliarem cada métrica com notas de 1 a 5. Isso torna suas métricas mais confiáveis! Caso use os arquivos da pasta `data`, lembre-se de contextualizar os participantes sobre o **cliente fictício** representado nesses dados.
+> Foram considerados testes com 3 a 5 usuários simulando diferentes perfis (restaurante, comércio, MEI), avaliando cada métrica com notas de 1 a 5.
 
 ---
 
@@ -26,24 +28,29 @@ A avaliação pode ser feita de duas formas complementares:
 
 Crie testes simples para validar seu agente:
 
-### Teste 1: Consulta de gastos
-- **Pergunta:** "Quanto gastei com alimentação?"
-- **Resposta esperada:** Valor baseado no `transacoes.csv`
+### Teste 1: Decisão de contratação
+- **Pergunta:** "Posso contratar mais um funcionário?"
+- **Resposta esperada:** Avaliação baseada em faturamento e limite de custo com equipe (~30%)
 - **Resultado:** [ ] Correto  [ ] Incorreto
 
-### Teste 2: Recomendação de produto
-- **Pergunta:** "Qual investimento você recomenda para mim?"
-- **Resposta esperada:** Produto compatível com o perfil do cliente
+### Teste 2: Aumento de lucro
+- **Pergunta:** "Como posso aumentar meu lucro?"
+- **Resposta esperada:** Sugestões práticas (redução de custos, aumento de ticket médio, fidelização)
 - **Resultado:** [ ] Correto  [ ] Incorreto
 
-### Teste 3: Pergunta fora do escopo
+### Teste 3: Cenário de crise
+- **Pergunta:** "Minhas vendas caíram, o que faço?"
+- **Resposta esperada:** Estratégias de sobrevivência (redução de custos, novas fontes de receita)
+- **Resultado:** [ ] Correto  [ ] Incorreto
+
+### Teste 4: Pergunta fora do escopo
 - **Pergunta:** "Qual a previsão do tempo?"
-- **Resposta esperada:** Agente informa que só trata de finanças
+- **Resposta esperada:** Agente informa limitação e redireciona para finanças
 - **Resultado:** [ ] Correto  [ ] Incorreto
 
-### Teste 4: Informação inexistente
-- **Pergunta:** "Quanto rende o produto XYZ?"
-- **Resposta esperada:** Agente admite não ter essa informação
+### Teste 5: Falta de contexto
+- **Pergunta:** "Devo investir meu dinheiro?"
+- **Resposta esperada:** Solicitação de mais informações antes de recomendar
 - **Resultado:** [ ] Correto  [ ] Incorreto
 
 ---
@@ -53,19 +60,26 @@ Crie testes simples para validar seu agente:
 Após os testes, registre suas conclusões:
 
 **O que funcionou bem:**
-- [Liste aqui]
+- O agente apresentou alta clareza nas respostas, com linguagem acessível
+- Conseguiu orientar decisões práticas de forma estruturada
+- Evitou alucinações ao solicitar mais contexto quando necessário
+- Demonstrou boa adaptação a diferentes cenários (crescimento e crise)
 
 **O que pode melhorar:**
-- [Liste aqui]
+- Tornar as respostas ainda mais personalizadas com maior volume de dados do usuário
+- Melhorar a precisão em simulações financeiras mais detalhadas
+- Evoluir a memória de contexto entre interações mais longas
+- Incluir integração com dados reais para maior assertividade
 
 ---
 
 ## Métricas Avançadas (Opcional)
 
-Para quem quer explorar mais, algumas métricas técnicas de observabilidade também podem fazer parte da sua solução, como:
+Além das métricas funcionais, a solução pode evoluir com monitoramento técnico:
 
-- Latência e tempo de resposta;
-- Consumo de tokens e custos;
-- Logs e taxa de erros.
+- Latência: tempo médio de resposta do agente
+- Consumo de tokens: controle de custo por interação
+- Taxa de fallback: frequência de respostas sem contexto suficiente
+- Taxa de retenção: usuários que retornam para novas interações
 
-Ferramentas especializadas em LLMs, como [LangWatch](https://langwatch.ai/) e [LangFuse](https://langfuse.com/), são exemplos que podem ajudar nesse monitoramento. Entretanto, fique à vontade para usar qualquer outra que você já conheça!
+Ferramentas como LangWatch e LangFuse podem ser utilizadas para monitoramento e melhoria contínua da solução.
