@@ -1,65 +1,57 @@
 # 🤖 Cielo AI Advisor
 
-Agente financeiro inteligente desenvolvido com IA Generativa para apoiar pequenos e médios empreendedores na tomada de decisões com base em dados financeiros simulados da Cielo.
+Agente financeiro inteligente desenvolvido com IA Generativa para apoiar pequenos e médios empreendedores na tomada de decisões com base em dados simulados.
 
 ---
 
 ## 📌 Sobre o Projeto
 
-Este projeto foi desenvolvido como parte de um desafio de IA aplicada, com o objetivo de criar um agente capaz de:
+O **Cielo AI Advisor** é um chatbot que atua como um consultor financeiro digital, utilizando:
 
-- Interpretar dados financeiros de clientes
-- Responder perguntas de forma contextualizada
-- Sugerir ações práticas para o negócio
-- Evitar respostas imprecisas (alucinações)
+- Dados estruturados (clientes, transações, custos e cenários)
+- IA Generativa (OpenAI)
+- Interface interativa com Streamlit
 
-O agente simula um **consultor financeiro digital**, utilizando dados estruturados e prompts bem definidos.
+O objetivo é transformar dados financeiros em **respostas claras, seguras e acionáveis**.
 
 ---
 
 ## 🎯 Problema
 
-Empreendedores nem sempre possuem conhecimento ou ferramentas para analisar:
-
-- Faturamento
-- Custos
-- Situação financeira do negócio
-
-Isso dificulta decisões como:
+Empreendedores têm dificuldade em analisar seus dados financeiros e tomar decisões como:
 
 - Contratar funcionários  
-- Reduzir despesas  
-- Expandir o negócio  
+- Reduzir custos  
+- Reagir a quedas de vendas  
+- Aumentar lucro  
 
 ---
 
 ## 💡 Solução
 
-O **Cielo AI Advisor** utiliza IA Generativa para:
+O agente:
 
-- Analisar dados do cliente
-- Entender o contexto do negócio
-- Gerar recomendações claras e seguras
+- Interpreta dados do cliente  
+- Entende o contexto do negócio  
+- Responde perguntas em linguagem natural  
+- Sugere ações práticas  
 
-Tudo isso através de uma interface de chat simples.
+Tudo via chat.
 
 ---
 
-## 🧠 O que o agente responde
-
-Exemplos de perguntas:
+## 💬 Exemplos de uso
 
 - "Posso contratar mais um funcionário?"
 - "Minhas vendas caíram, o que faço?"
-- "Como melhorar meu lucro?"
-
-O agente responde com base nos dados disponíveis e regras financeiras básicas.
+- "Como posso aumentar meu lucro?"
 
 ---
 
-## 📂 Estrutura do Repositório
+## 📂 Estrutura do Projeto
 
-📁 lab-agente-financeiro/
+
+ 📁 lab-agente-financeiro/
 │
 ├── 📄 README.md
 │
@@ -86,83 +78,62 @@ O agente responde com base nos dados disponíveis e regras financeiras básicas.
 │ └── requirements.txt
 │
 ├── 📁 examples/ # Exemplos do projeto
-└── README.md
+├── .env
+└── README.md 
 
 ⚙️ Como Executar
+
 1. Instalar dependências
 pip install -r src/requirements.txt
-2. Configurar chave da API
 
-Criar arquivo .env:
+2. Criar arquivo .env
+
+Na raiz do projeto, crie um arquivo chamado:
+
+.env
+
+E adicione sua chave da OpenAI:
 
 OPENAI_API_KEY=sua_chave_aqui
+
 3. Rodar a aplicação
 streamlit run src/app.py
-📊 Base de Dados
 
-Os dados são simulados e representam clientes da Cielo.
+Abra no navegador:
 
-Incluem:
+http://localhost:8501
 
-Informações do negócio
-Histórico de transações
-Custos
-Cenário financeiro
+🧠 Funcionamento do Agente
 
-Esses dados são utilizados como contexto para o agente.
+O fluxo é:
 
-🧩 Componentes do Projeto
-Dados (data/): base de conhecimento do agente
-Prompts (docs/03): definem comportamento e regras
-Aplicação (src/): interface e lógica do chatbot
-Métricas (docs/04): avaliação de qualidade
+1- Usuário envia uma pergunta
+2- O sistema carrega dados da pasta data/
+3- O agente monta um contexto com esses dados
+4- A pergunta é enviada para o modelo de IA
+5- A resposta é gerada com base no contexto
+
+📊 Base de Dados: data_exemplo
+Os dados são simulados e representam clientes reais:
+Esses dados alimentam o contexto do agente.
+
 📏 Avaliação
+O agente foi avaliado com base em:
+- Assertividade
+- Segurança (não inventar informações)
+- Coerência com os dados
 
-O agente foi testado com base em:
-
-Assertividade das respostas
-Segurança (não inventar dados)
-Coerência com o cenário do cliente
 🚀 Possíveis Melhorias
-Integração com dados reais
-Interface mais robusta
-Histórico de conversas
-Recomendações mais avançadas
-🎥 Pitch
+- Seleção de cliente no app
+- Cálculo automático de métricas (lucro, margem)
+- Interface mais avançada
+- Integração com dados reais
 
-O projeto inclui um pitch de até 3 minutos explicando:
-
-Problema
-Solução
-Demonstração
-Impacto
-
-Ver em: docs/05-pitch.md
+⚠️ Observações Importantes
+- O arquivo .env não deve ser enviado para o GitHub
+- Este projeto utiliza dados simulados
+- Uso educacional
 
 🏁 Conclusão
 
-O projeto demonstra como a IA Generativa pode ser aplicada para transformar dados financeiros em recomendações úteis, de forma simples e acessível.
-
-📌 Observação
-
-Este projeto utiliza dados simulados e tem fins educacionais.
-
----
-
-## 🔥 Agora sim — por que esse ficou melhor
-
-Esse README:
-
-✅ Reflete exatamente o que você fez (sem inventar arquitetura complexa)  
-✅ É direto (avaliador lê rápido)  
-✅ Mantém cara profissional  
-✅ Conecta com todas as pastas do projeto  
-
----
-
-Se quiser dar um **upgrade final (nível impressionar recrutador)**, posso:
-
-👉 deixar ele mais visual (badges, prints, gif do app)  
-👉 ou adaptar ele exatamente pro padrão da DIO  
-
-Só falar 👍
+O projeto demonstra como a IA Generativa pode ser aplicada para apoiar decisões financeiras de forma simples, prática e contextualizada.
