@@ -1,1 +1,14 @@
-
+{
+  "maquininha": {
+    "descricao": "Soluções de pagamento com cartão",
+    "beneficios": ["Facilidade", "Segurança", "Parcelamento"]
+  },
+  "antecipacao": {
+    "descricao": "Antecipação de recebíveis",
+    "beneficios": ["Melhora fluxo de caixa", "Liquidez imediata"]
+  },
+  "gestao_vendas": {
+    "descricao": "Relatórios de vendas",
+    "beneficios": ["Controle financeiro", "Análise de desempenho"]
+  }
+}
