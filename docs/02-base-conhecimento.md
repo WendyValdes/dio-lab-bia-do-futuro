@@ -6,13 +6,14 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 
 | Arquivo | Formato | Utilização no Agente |
 |---------|---------|---------------------|
-| `historico_atendimento.csv` | CSV | Contextualizar interações anteriores |
-| `perfil_investidor.json` | JSON | Personalizar recomendações |
-| `produtos_financeiros.json` | JSON | Sugerir produtos adequados ao perfil |
-| `transacoes.csv` | CSV | Analisar padrão de gastos do cliente |
+| `perfil_empresarial.json` | JSON | Armazena dados do negócio (faturamento, segmento, custos) para personalizar recomendações |
+| `indicadores_financieiros.json` | JSON | Contém regras de cálculo (lucro, margem, ponto de equilíbrio) |
+| `boas_praticas_financeiras.json` | JSON | Base de conhecimento com orientações sobre gestão financeira |
+| `produtos_cielo.json` | JSON | Informações sobre soluções da Cielo (maquininha, taxas, antecipação) |
+| `cenarios_crise.json` | JSON | Estratégias para momentos de queda de receita ou crises econômicas |
 
 > [!TIP]
-> **Quer um dataset mais robusto?** Você pode utilizar datasets públicos do [Hugging Face](https://huggingface.co/datasets) relacionados a finanças, desde que sejam adequados ao contexto do desafio.
+> Também podem ser incorporados datasets públicos de comportamento financeiro para enriquecer recomendações e simulações.
 
 ---
 
@@ -20,7 +21,16 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 
 > Você modificou ou expandiu os dados mockados? Descreva aqui.
 
-[Sua descrição aqui]
+Os dados foram adaptados para simular o contexto real de pequenos empreendedores, com foco em negócios como restaurantes, comércios locais e prestadores de serviço.
+
+As principais adaptações incluem:
+
+- Criação de perfis empresariais simplificados (ex: faturamento mensal, custos fixos, número de funcionários)
+- Inclusão de regras práticas de negócio (ex: limite saudável de custo com funcionários)
+- Estruturação de exemplos de cenários reais (queda de vendas, expansão, contratação)
+- Simplificação de conceitos financeiros para facilitar interpretação pelo modelo
+
+Além disso, os dados foram organizados de forma a facilitar o uso por IA generativa, priorizando clareza, contexto e aplicabilidade.
 
 ---
 
@@ -29,12 +39,25 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 ### Como os dados são carregados?
 > Descreva como seu agente acessa a base de conhecimento.
 
-[ex: Os JSON/CSV são carregados no início da sessão e incluídos no contexto do prompt]
+Os arquivos JSON e CSV são carregados no início da execução da aplicação (por exemplo, via Python em ambiente como Streamlit). Esses dados são estruturados em objetos que podem ser facilmente consultados durante a interação.
+
+Parte das informações mais relevantes é inserida diretamente no contexto do prompt, enquanto outras são acessadas dinamicamente conforme a necessidade da pergunta do usuário.
 
 ### Como os dados são usados no prompt?
 > Os dados vão no system prompt? São consultados dinamicamente?
 
-[Sua descrição aqui]
+A estratégia combina duas abordagens:
+
+- System Prompt (contexto fixo):
+  - Regras gerais de negócio
+  - Boas práticas financeiras
+  - Diretrizes de comportamento do agente
+- Contexto dinâmico:
+  - Dados do usuário (faturamento, custos, segmento)
+  - Histórico de interações
+  - Cenário atual (ex: queda de vendas, expansão)
+
+Quando o usuário faz uma pergunta, o agente monta dinamicamente um contexto relevante, incluindo apenas as informações necessárias para gerar uma resposta mais precisa e personalizada.
 
 ---
 
@@ -44,12 +67,24 @@ Descreva se usou os arquivos da pasta `data`, por exemplo:
 
 ```
 Dados do Cliente:
-- Nome: João Silva
-- Perfil: Moderado
-- Saldo disponível: R$ 5.000
+- Nome do negócio: Restaurante Sabor Caseiro
+- Segmento: Alimentação
+- Faturamento mensal: R$ 30.000
+- Custos fixos: R$ 18.000
+- Número de funcionários: 3
 
-Últimas transações:
-- 01/11: Supermercado - R$ 450
-- 03/11: Streaming - R$ 55
-...
+Situação atual:
+- Queda de 20% nas vendas no último mês
+- Interesse em contratar mais um funcionário
+
+Regras relevantes:
+- Margem de lucro ideal: acima de 15%
+- Custo com funcionários recomendado: até 30% do faturamento
+
+Histórico recente:
+- Perguntou sobre redução de custos
+- Demonstrou interesse em aumentar lucro
+
+Objetivo do usuário:
+- Entender se pode contratar sem comprometer o lucro
 ```
